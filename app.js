@@ -2,36 +2,34 @@
  * Created by zhannalibman on 22/01/2017.
  */
 
-//Tests
-    //for create:
+//tests
+function test(initArr, index, value){
+    try {
+        var testArr = create(initArr);
+        if(testArr != initArr){
+            console.log("Failed at create.");
+            return;
+        }
+        add(testArr, value);
+        if (get(testArr, test.length - 1) !== value) {
+            console.log("Failed at add or get");
+            return;
+        }
+        set(testArr, index, value);
+        if (get(testArr, index) !== value) {
+            console.log("Failed at set.");
+            return;
+        }
+        console.log("Test passed.")
+    }catch (err){
+        console.log(err.message);
+    }
+}
 
-var object = {"a":5};
-var testArr = create([1,2,"hh"]);
-var testArr1 = create([]);
-// var testArr2 = create(object);
-
-    //for add:
-add(testArr, 100);
-console.dir(testArr);
-add(testArr1, "l");
-console.dir(testArr1);
-// add(object, 7);
-// console.dir(object);
-
-    //for get
-console.log(get(testArr, 3));
-// console.log(get(testArr, "j"));
-// console.log(get(testArr, -1));
-// console.log(get(testArr, 15));
-
-    //for set
-set(testArr, 0, "value");
-// set(testArr, -1, "value");
-// set(testArr, 10, "value");
-// set(testArr, 2, undefined);
-console.dir(testArr);
-
-
+ // test([0,"6"], 1, 100);
+// test([0,"6"], -1, 100);
+//  test([0,"6"], 2, 100);
+// test({"a":5}, 5, 100);
 
 
 //SafeArray
@@ -53,7 +51,7 @@ function add(arr, value){
 }
 function create(values){
     checkIfArray(values);
-    return [].concat(values);
+    return values;
 }
 
 function checkIfArray(arr){
