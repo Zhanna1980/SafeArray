@@ -26,7 +26,7 @@ function test(initArr, index, value){
     }
 }
 
- // test([0,"6"], 1, 100);
+ test([0,"6"], 1, 100);
 // test([0,"6"], -1, 100);
 //  test([0,"6"], 2, 100);
 // test({"a":5}, 5, 100);
